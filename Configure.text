@@ -25,7 +25,6 @@ Smartphone:      192.168.10.50
 
 ## 2. Router0 Configuration
 
-```cisco
 enable
 configure terminal
 
@@ -34,10 +33,12 @@ interface gigabitEthernet 0/0
  no shutdown
 exit
 
-end
-```
+interface gigabitEthernet 0/1
+ ip address 10.10.0.1 255.255.255.0
+ no shutdown
+exit
 
----
+end
 
 ## 3. RADIUS / AAA Server Configuration
 
