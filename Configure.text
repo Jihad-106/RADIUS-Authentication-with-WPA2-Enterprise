@@ -1,13 +1,6 @@
 # RADIUS WPA2-Enterprise Lab — Configuration
 
 ## 1. IP Addressing
-
-### Router0
-
-```text
-G0/0: 192.168.10.1/24
-```
-
 ### RADIUS Server (Server0)
 
 ```text
@@ -18,21 +11,17 @@ Default Gateway: 192.168.10.1
 
 ### Wireless Router
 
-```text
 Local IP:        192.168.10.3
 Subnet Mask:     255.255.255.0
-DHCP:            Enabled
-```
+DHCP:           Disabled
 
 ### Wireless Client
 
-```text
-Laptop0:         192.168.
-10.10
+Laptop0:         192.168.10.10
+Laptop1:         192.168.10.20
+Laptop2:         192.168.10.30
+Smartphone:      192.168.10.50
 
-```
-
----
 
 ## 2. Router0 Configuration
 
@@ -73,86 +62,64 @@ Client IP:   192.168.10.3
 Shared Secret: radius123
 ```
 
-### RADIUS Authentication Port
+### RADIUS Authentication Port-1645
 
-```text
-UDP 1812
-```
-
----
 
 ## 4. Wireless Router Configuration
 
 ### Network Settings
 
-```text
+
 Local IP Address: 192.168.10.3
 Subnet Mask:      255.255.255.0
 DHCP Server:      Enabled
-```
 
 ### Wireless Settings
 
-```text
 SSID: RADIUS-WiFi
 Wireless Security: WPA2-Enterprise
 Encryption: AES
-```
 
 ### RADIUS Settings
 
-```text
 RADIUS Server: 192.168.10.2
 RADIUS Port:   1812
 Shared Secret: radius123
-```
 
----
 
 ## 5. Wireless Client Configuration
 
 ### Wireless Profile
 
-```text
+
 Profile Name: RADIUS-Profile
 SSID: RADIUS-WiFi
 Security: WPA2-Enterprise
 Authentication: PEAP
-Username: jihad
-Password: 12345
+Username: Jihad
+Password: 1234
 Certificate: Trust Any
-```
-
----
 
 ## 6. Verification
 
 ### Connectivity Tests
 
-```text
 ping 192.168.10.1
 ping 192.168.10.2
 ping 192.168.10.3
-```
 
 All required connectivity tests were successful.
 
 ### RADIUS Authentication Test
 
-Correct credentials:
 
-```text
-Username: jihad
-Password: 12345
+Username: Jihad
+Password: 1234
 Result: Authentication Successful
 ```
-
 Incorrect credentials:
 
 ```text
 Username: jihad
 Password: wrong123
 Result: Authentication Failed
-```
-
-This confirms that wireless authentication is being performed through the centralized RADIUS server.
